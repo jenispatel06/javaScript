@@ -1,0 +1,50 @@
+3. Write a JavaScript program to set paragraph background color.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: 1%;
+        } */
+        #para{
+            border: 2px solid black;
+            height: 12vh;
+            width: 40vw; 
+            margin-bottom: 1%;
+            padding: 1%;
+        }
+        div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2%;
+            margin-left: 25%;
+        }
+    </style>
+</head>
+<body>
+    <div  id="para">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+        Possimus adipisci consequuntur odio eveniet eius aliquid 
+        quaerat atque? Perspiciatis quis quos, sed consectetur 
+        voluptates ullam dignissimos officiis quibusdam ratione 
+        exercitationem repudiandae.</p>
+    </div>
+
+    <button id="style" onclick="changeStyle()" style="height: 5vh; width: 8vw; margin-left: 42%;">Click Me</button>
+
+        <script>
+            function changeStyle(){
+                para.style.backgroundColor = "Yellow"
+            }
+        </script>
+</body>
+</html>

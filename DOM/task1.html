@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 5%;
+            
+        }
+        input{
+            height: 6vh;
+            width: 10vw;
+            border-radius: 5%;
+            background-color: rgb(70, 110, 97);
+            color: white;
+            font-weight: bolder;
+        }
+        table{
+            height: 5vh;
+            width: 40vw;
+            text-align: center;
+            background-color: rgb(201, 245, 219);
+        }
+        tr{
+            height: 6vh;
+        }
+        td{
+            width: 50vw;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <h1>INVOICE TABLE</h1>
+    <div style="margin-bottom: 1%;">
+        <input type=button class="btn" value="Add Items" onclick=addItems()>
+        <input type=button class="btn" value="Remove Items" onclick=RemoveItems()>
+    </div>
+
+    <table id="invoiceTable" border="1">
+        <tr>
+            <td>Item</td>
+            <td>Quntity</td>
+            <td>Price</td>
+            <td>Total</td>
+        </tr>
+    </table><br>
+
+    <script>
+        function addItems() {
+
+            const addRows = invoiceTable.rows.length;
+
+            const newRow = document.getElementById('invoiceTable').insertRow(addRows);
+            const data1 = newRow.insertCell(0);
+            const data2 = newRow.insertCell(1);
+            const data3 = newRow.insertCell(2);
+            const data4 = newRow.insertCell(3);
+
+            data1.innerHTML = (`Item ${addRows}`);
+            data2.innerHTML = (`Quntity ${addRows}`);
+            data3.innerHTML = (`Price ${addRows}`);
+            data4.innerHTML = (`Total ${addRows}`);
+        }
+
+        function RemoveItems(){    
+            document.querySelectorAll("tr")[1].remove();
+        }
+        
+    </script>
+</body>
+</html>
+
+
+

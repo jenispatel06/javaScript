@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            gap: 3%;
+            padding-top: 10%;
+            padding-left: 40%;
+
+        }
+
+        #first_div {
+            margin-bottom: 5%;
+
+        }
+
+        .btn {
+            height: 5vh;
+            width: 8vw;
+        }
+
+        #count_div {
+            text-align: center;
+        }
+
+        .remove_btn {
+            border: 2px solid black;
+            height: 5vh;
+            width: 8vw;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        #main_div {
+            border: 2px solid black;
+            width: 12vw;
+            padding-bottom: 1%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 3%;
+            height: 50vh;
+            overflow-y: scroll;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .rmv_btn {
+            height: 3vh;
+            width: 5vw;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="first_div">
+        <div id="btn_add"><input type=button class="btn" value="Add" onclick=add_Boxes()></div>
+        <div id="count_div">
+            <h1>Box</h1>
+            <hr />
+            <div class="count">
+                <p id="count">0</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="main_div">
+        <span id="span">No Boxes Inside</span>
+    </div>
+
+    <script>
+        function add_Boxes() {
+
+            const mainBox = document.getElementById('main_div');
+            const elementCount = mainBox.children;
+            const span = document.getElementById('span');
+            if(elementCount.length === 1 && elementCount[0] === span){
+                span.remove();
+            }
+            const innerDiv = document.createElement('div');
+            const button = document.createElement('button');
+            button.innerText = 'Remove';
+            innerDiv.setAttribute("class", "remove_btn");
+            button.setAttribute("onclick", "remove_Boxes(this)");
+            innerDiv.append(button);
+            mainBox.append(innerDiv);
+
+            const counterObj = document.getElementById('count');
+            let count = elementCount.length;
+            counterObj.innerText = count;
+           
+        }
+         
+        function remove_Boxes(obj){
+            obj.parentElement.remove();
+            const div = document.getElementById('main_div');
+            const elementCount = div.children;
+            if(elementCount.length === 0 ){
+                const span = createElement('span');
+                span.setAttribute('id','span');
+                span.innerText = 'No Boxes Inside';   
+                div.append(span); 
+            }
+            
+        }
+
+        
+
+
+    </script>
+</body>
+
+</html>

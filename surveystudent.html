@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+       
+        *{
+            margin: 10px;
+            padding-top: 15px;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .main-div{
+            height: auto;
+            width: 90vw;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .head-div{
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            height: 15vh;
+            background-color: rgb(72, 70, 70);
+            color: white;
+        }
+        .names{
+            display: flex;
+            gap: 2%;
+        }
+        .date{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .table{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 80vw;
+        }
+        table{
+            width: 100vw;
+        }
+        td{
+         
+            border-collapse: collapse;
+            border: 1px solid black;
+            text-align:center;
+            font-size: 40px;
+        }
+        tr  th {
+            background-color: rgb(217, 240, 242);
+            border: 1px solid black;
+        }
+        table tr:first-child th:first-child {
+            border: none;
+            background-color: white;
+        }
+        .rbuton{
+            display: block;
+            height: 20px;
+            width: 20px;
+        }
+        textarea{
+            border-radius: 5px;
+            width: 80vw;
+        }
+        input{
+            border-radius: 5px;
+            height: 25px;
+        }
+        label{
+            font-weight: bold;
+            font-size: larger;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        button{
+            border-radius: 8px;
+            background-color: rgb(61, 212, 61);
+            height: 8vh;
+            width: 80vw;
+            font-size: x-large;
+            font-weight: bold;
+        }
+        input:hover{
+            border: 2px solid rgb(84, 212, 255);
+            box-shadow: 2px 2px rgb(84, 212, 255);
+        }
+        select:hover{
+            border: 2px solid rgb(84, 212, 255);
+            box-shadow: 1px 1px 1px 1px rgb(84, 212, 255);
+        }
+        textarea:hover{
+            border: 2px solid rgb(84, 212, 255);
+            box-shadow: 1px 1px 1px 1px rgb(84, 212, 255);
+        }
+        @media screen and (max-width:430px){
+            
+            .names{
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    </style>
+
+<script>
+    function areaFocus(classname){
+      document.getElementById(classname).style.backgroundColor = "rgb(255,235,205)"
+    }
+    function areaBlur(classname){
+      document.getElementById(classname).style.backgroundColor = "transparent"
+    }
+  </script>
+
+
+</head>
+<body>
+    <div class="main-div">
+        <div class="head-div">
+            <h1>Student Survey</h1>
+        </div>
+
+        <div class="info-div">
+
+            <div class="sclname" id="sclname">
+                <label for="sname">School Name</label>
+           
+            <input type="text" style=" border-top: none; 
+                                       border-left: none;
+                                       border-right: none;
+                                       width: 80vw"
+                                       tabindex="1" 
+                                       onfocus="areaFocus('sclname')"
+                                       onblur="areaBlur('sclname')">
+        </div> 
+        <label for="name" style="display: block;">Student Name</label>
+        <div class="names" id="names">
+            <div class="name">
+                <input type="text" style="display: block; width: 30vw;" onfocus="areaFocus('names')"
+                                                                        onblur="areaBlur('names')">
+                <label for="fname">First Name</label>
+            </div>
+            <div class="name">
+                <input type="text" style="display: block; width: 30vw;" onfocus="areaFocus('names')"
+                                                                        onblur="areaBlur('names')">
+                <label for="lname">Last Name</label>
+            </div>
+        </div>
+        <div class="date" id="date"> 
+            <label for="date" style="display: block; ">Date</label>
+            <input type="date" style="width: 30vw;" onfocus="areaFocus('date')"
+                                                    onblur="areaBlur('date')">
+        </div>
+
+        <div class="que" id="que">
+            <p>How long have you been a student here?</p>
+            <select name="que" id="que" style="width: 30vw;" onfocus="areaFocus('que')"
+                                                             onblur="areaBlur('que')">
+                <option value="select">Please Select</option>
+                <option value="less">Less than a Month</option>
+                <option value="months">1-6 Months</option>
+                <option value="year">6 Month to 1 Year</option>
+                <option value="more">More than Year</option>
+                <option value="years">1-3 Years</option>
+                <option value="threeyear">More than Three Years</option>
+            </select>
+        </div>
+       
+        <div class="table">
+            <p>Please rate the following aspects of your education.</p>
+            <label> Curriculum and classes for the term</label>
+            <div style="overflow-x: scroll;" id="tab1">
+            <table class="tab1" cellspacing="0px">
+                <tr>
+                    <th style="border: none;"></th>
+                    <th>Strongly Disagree</th>
+                    <th>Disagree</th>
+                    <th>Neutral</th>
+                    <th>Agree</th>
+                    <th>Strongly Agree</th>
+                </tr>
+                <tr for="radio1" >
+                    <th >The class descriptions accurately described the content.</th>
+                    <td><input type="radio" id="radio1" name="radio1" class="rbuton"onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                    <td><input type="radio" id="radio1" name="radio1" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                    <td><input type="radio" id="radio1" name="radio1"  class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                    <td><input type="radio" id="radio1" name="radio1"  class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                    <td><input type="radio" id="radio1" name="radio1"  class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                </tr>
+                <tr for="radio2">
+                    <th>I was academically prepared for the classes.</th>
+                    <td><input type="radio" id="radio2" name="radio2" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                    <td><input type="radio" id="radio2" name="radio2" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                    <td><input type="radio" id="radio2" name="radio2" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                    <td><input type="radio" id="radio2" name="radio2" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                    <td><input type="radio" id="radio2" name="radio2" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                </tr>
+                <tr for="radio3">
+                    <th>The class sizes were appropriate.</th>
+                    <td><input type="radio" id="radio3" name="radio3" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                    <td><input type="radio" id="radio3" name="radio3" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                    <td><input type="radio" id="radio3" name="radio3" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                    <td><input type="radio" id="radio3" name="radio3" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                    <td><input type="radio" id="radio3" name="radio3" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                </tr>
+                <tr for="radio4">
+                    <th>The classes started and ended on time.</th>
+                    <td><input type="radio" id="radio4" name="radio4" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                    <td><input type="radio" id="radio4" name="radio4" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                    <td><input type="radio" id="radio4" name="radio4" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                    <td><input type="radio" id="radio4" name="radio4" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                    <td><input type="radio" id="radio4" name="radio4" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                </tr>
+                <tr for="radio5">
+                    <th>The classes increased my knowledge of the subject matter.</th>
+                    <td><input type="radio" id="radio5" name="radio5" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                    <td><input type="radio" id="radio5" name="radio5" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                    <td><input type="radio" id="radio5" name="radio5" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                    <td><input type="radio" id="radio5" name="radio5" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                    <td><input type="radio" id="radio5" name="radio5" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                </tr>
+                <tr for="radio6">
+                    <th>The overall quality of the classes was excellent.</th>
+                    <td><input type="radio" id="radio6" name="radio6" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                    <td><input type="radio" id="radio6" name="radio6" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                    <td><input type="radio" id="radio6" name="radio6" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                    <td><input type="radio" id="radio6" name="radio6" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                    <td><input type="radio" id="radio6" name="radio6" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                </tr>
+                <tr for="radio7">
+                    <th>I would recommend these classes to other students.</th>
+                    <td><input type="radio" id="radio7" name="radio7" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                    <td><input type="radio" id="radio7" name="radio7" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                    <td><input type="radio" id="radio7" name="radio7" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                    <td><input type="radio" id="radio7" name="radio7" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                    <td><input type="radio" id="radio7" name="radio7" class="rbuton" onfocus="areaFocus('tab1')"
+                        onblur="areaBlur('tab1')" ></td>
+                </tr>
+            </table>
+            </div>
+    
+    
+    
+            <label>Materials</label>
+            <div style="overflow-x: scroll;" id="tab2">
+            <table  class="tab2" cellspacing="0px">
+                <tr>
+                    <th></th>
+                    <th>Strongly Disagree</th>
+                    <th>Disagree</th>
+                    <th>Neutral</th>
+                    <th>Agree</th>
+                    <th>Strongly Agree</th>
+                </tr>
+                <tr for="radio8" >
+                    <th >The objectives and requirements for the classes were clearly stated.</th>
+                    <td><input type="radio" id="radio8" name="radio8" class="rbuton"  onfocus="areaFocus('tab2')"
+                        onblur="areaBlur('tab2')" ></td>
+                    <td><input type="radio" id="radio8" name="radio8" class="rbuton"  onfocus="areaFocus('tab2')"
+                        onblur="areaBlur('tab2')" ></td>
+                    <td><input type="radio" id="radio8" name="radio8" class="rbuton"  onfocus="areaFocus('tab2')"
+                        onblur="areaBlur('tab2')" ></td>
+                    <td><input type="radio" id="radio8" name="radio8" class="rbuton"  onfocus="areaFocus('tab2')"
+                        onblur="areaBlur('tab2')" ></td>
+                    <td><input type="radio" id="radio8" name="radio8" class="rbuton"  onfocus="areaFocus('tab2')"
+                        onblur="areaBlur('tab2')" ></td>
+                </tr>
+                <tr for="radio9">
+                    <th>The textbooks and learning materials were relevant and useful.</th>
+                    <td><input type="radio" id="radio9" name="radio9" class="rbuton" onfocus="areaFocus('tab2')"
+                        onblur="areaBlur('tab2')" ></td>
+                    <td><input type="radio" id="radio9" name="radio9" class="rbuton" onfocus="areaFocus('tab2')"
+                        onblur="areaBlur('tab2')" ></td>
+                    <td><input type="radio" id="radio9" name="radio9" class="rbuton" onfocus="areaFocus('tab2')"
+                        onblur="areaBlur('tab2')" ></td>
+                    <td><input type="radio" id="radio9" name="radio9" class="rbuton" onfocus="areaFocus('tab2')"
+                        onblur="areaBlur('tab2')" ></td>
+                    <td><input type="radio" id="radio9" name="radio9" class="rbuton" onfocus="areaFocus('tab2')"
+                        onblur="areaBlur('tab2')" ></td>
+                </tr>
+                <tr for="radio10">
+                    <th>The instructors were available and helpful to students outside of class.</th>
+                    <td><input type="radio" id="radio10" name="radio10" class="rbuton" onfocus="areaFocus('tab2')"
+                        onblur="areaBlur('tab2')" ></td>
+                    <td><input type="radio" id="radio10" name="radio10" class="rbuton" onfocus="areaFocus('tab2')"
+                        onblur="areaBlur('tab2')" ></td>
+                    <td><input type="radio" id="radio10" name="radio10" class="rbuton" onfocus="areaFocus('tab2')"
+                        onblur="areaBlur('tab2')" ></td>
+                    <td><input type="radio" id="radio10" name="radio10" class="rbuton" onfocus="areaFocus('tab2')"
+                        onblur="areaBlur('tab2')" ></td>
+                    <td><input type="radio" id="radio10" name="radio10" class="rbuton" onfocus="areaFocus('tab2')"
+                        onblur="areaBlur('tab2')" ></td>
+                </tr>
+            </table>
+        </div>
+    
+    
+            <label>Instruction</label>
+            <div style="overflow-x: scroll;" id="tab3">
+            <table  class="tab3" cellspacing="0px">
+                <tr>
+                    <th></th>
+                    <th>Strongly Disagree</th>
+                    <th>Disagree</th>
+                    <th>Neutral</th>
+                    <th>Agree</th>
+                    <th>Strongly Agree</th>
+                </tr>
+                <tr for="radio11" >
+                    <th >The instructors were qualified to teach these classes.</th>
+                    <td><input type="radio" id="radio11" name="radio11" class="rbuton"  onfocus="areaFocus('tab3')"
+                        onblur="areaBlur('tab3')" ></td>
+                    <td><input type="radio" id="radio11" name="radio11" class="rbuton"  onfocus="areaFocus('tab3')"
+                        onblur="areaBlur('tab3')" ></td>
+                    <td><input type="radio" id="radio11" name="radio11" class="rbuton"  onfocus="areaFocus('tab3')"
+                        onblur="areaBlur('tab3')" ></td>
+                    <td><input type="radio" id="radio11" name="radio11" class="rbuton"  onfocus="areaFocus('tab3')"
+                        onblur="areaBlur('tab3')" ></td>
+                    <td><input type="radio" id="radio11" name="radio11" class="rbuton"  onfocus="areaFocus('tab3')"
+                        onblur="areaBlur('tab3')" ></td>
+                </tr>
+                <tr for="radio12">
+                    <th>The textbooks and learning materials were relevant and useful.</th>
+                    <td><input type="radio" id="radio12" name="radio12" class="rbuton"  onfocus="areaFocus('tab3')"
+                        onblur="areaBlur('tab3')" ></td>
+                    <td><input type="radio" id="radio12" name="radio12" class="rbuton"  onfocus="areaFocus('tab3')"
+                        onblur="areaBlur('tab3')" ></td>
+                    <td><input type="radio" id="radio12" name="radio12" class="rbuton"  onfocus="areaFocus('tab3')"
+                        onblur="areaBlur('tab3')" ></td>
+                    <td><input type="radio" id="radio12" name="radio12" class="rbuton"  onfocus="areaFocus('tab3')"
+                        onblur="areaBlur('tab3')" ></td>
+                    <td><input type="radio" id="radio12" name="radio12" class="rbuton"  onfocus="areaFocus('tab3')"
+                        onblur="areaBlur('tab3')" ></td>
+                </tr>
+                <tr for="radio13">
+                    <th>The instructors were available and helpful to students outside of class.</th>
+                    <td><input type="radio" id="radio13" name="radio13" class="rbuton"  onfocus="areaFocus('tab3')"
+                        onblur="areaBlur('tab3')" ></td>
+                    <td><input type="radio" id="radio13" name="radio13" class="rbuton"  onfocus="areaFocus('tab3')"
+                        onblur="areaBlur('tab3')" ></td>
+                    <td><input type="radio" id="radio13" name="radio13" class="rbuton"  onfocus="areaFocus('tab3')"
+                        onblur="areaBlur('tab3')" ></td>
+                    <td><input type="radio" id="radio13" name="radio13" class="rbuton"  onfocus="areaFocus('tab3')"
+                        onblur="areaBlur('tab3')" ></td>
+                    <td><input type="radio" id="radio13" name="radio13" class="rbuton"  onfocus="areaFocus('tab3')"
+                        onblur="areaBlur('tab3')" ></td>
+                </tr>
+            </table>
+        </div>
+    
+            <label>School environment</label>
+            <div style="overflow-x: scroll;" id="tab4">
+            <table  class="tab4" cellspacing="0px">
+                <tr>
+                    <th></th>
+                    <th>Strongly Disagree</th>
+                    <th>Disagree</th>
+                    <th>Neutral</th>
+                    <th>Agree</th>
+                    <th>Strongly Agree</th>
+                </tr>
+                <tr for="radio11" >
+                    <th >The physical classroom environments were clean and comfortable.</th>
+                    <td><input type="radio" id="radio14" name="radio14" class="rbuton"  onfocus="areaFocus('tab4')"
+                        onblur="areaBlur('tab4')" ></td>
+                    <td><input type="radio" id="radio14" name="radio14" class="rbuton"  onfocus="areaFocus('tab4')"
+                        onblur="areaBlur('tab4')" ></td>
+                    <td><input type="radio" id="radio14" name="radio14" class="rbuton"  onfocus="areaFocus('tab4')"
+                        onblur="areaBlur('tab4')" ></td>
+                    <td><input type="radio" id="radio14" name="radio14" class="rbuton"  onfocus="areaFocus('tab4')"
+                        onblur="areaBlur('tab4')" ></td>
+                    <td><input type="radio" id="radio14" name="radio14"  class="rbuton"  onfocus="areaFocus('tab4')"
+                        onblur="areaBlur('tab4')" ></td>
+                </tr>
+                <tr for="radio12">
+                    <th>Library and on-site computers consistently made available.</th>
+                    <td><input type="radio" id="radio15" name="radio15" class="rbuton"  onfocus="areaFocus('tab4')"
+                        onblur="areaBlur('tab4')" ></td>
+                    <td><input type="radio" id="radio15" name="radio15" class="rbuton"  onfocus="areaFocus('tab4')"
+                        onblur="areaBlur('tab4')" ></td>
+                    <td><input type="radio" id="radio15" name="radio15" class="rbuton"  onfocus="areaFocus('tab4')"
+                        onblur="areaBlur('tab4')" ></td>
+                    <td><input type="radio" id="radio15" name="radio15" class="rbuton"  onfocus="areaFocus('tab4')"
+                        onblur="areaBlur('tab4')" ></td>
+                    <td><input type="radio" id="radio15" name="radio15" class="rbuton"  onfocus="areaFocus('tab4')"
+                        onblur="areaBlur('tab4')" ></td>
+                </tr>
+                <tr for="radio13">
+                    <th>The common spaces were clean and comfortable.</th>
+                    <td><input type="radio" id="radio16" name="radio16" class="rbuton"  onfocus="areaFocus('tab4')"
+                        onblur="areaBlur('tab4')" ></td>
+                    <td><input type="radio" id="radio16" name="radio16" class="rbuton"  onfocus="areaFocus('tab4')"
+                        onblur="areaBlur('tab4')" ></td>
+                    <td><input type="radio" id="radio16" name="radio16" class="rbuton"  onfocus="areaFocus('tab4')"
+                        onblur="areaBlur('tab4')" ></td>
+                    <td><input type="radio" id="radio16" name="radio16" class="rbuton"  onfocus="areaFocus('tab4')"
+                        onblur="areaBlur('tab4')" ></td>
+                    <td><input type="radio" id="radio16" name="radio16" class="rbuton"  onfocus="areaFocus('tab4')"
+                        onblur="areaBlur('tab4')" ></td>
+                </tr>
+                <tr for="radio13">
+                    <th>The school communicated institutional goals and relevant news to students.</th>
+                    <td><input type="radio" id="radio17" name="radio17" class="rbuton"  onfocus="areaFocus('tab4')"
+                        onblur="areaBlur('tab4')" ></td>
+                    <td><input type="radio" id="radio17" name="radio17" class="rbuton"  onfocus="areaFocus('tab4')"
+                        onblur="areaBlur('tab4')" ></td>
+                    <td><input type="radio" id="radio17" name="radio17" class="rbuton"  onfocus="areaFocus('tab4')"
+                        onblur="areaBlur('tab4')" ></td>
+                    <td><input type="radio" id="radio17" name="radio17" class="rbuton"  onfocus="areaFocus('tab4')"
+                        onblur="areaBlur('tab4')" ></td>
+                    <td><input type="radio" id="radio17" name="radio17" class="rbuton"  onfocus="areaFocus('tab4')"
+                        onblur="areaBlur('tab4')" ></td>
+                </tr>
+            </table>
+        </div>
+        </div>
+        </div>
+
+
+        <div class="que-div" id="quediv">
+            <label for="rbutton">How likely are you to recommend our school to a friend or colleague?</label>
+            <input type="radio" value="Very Likely" id="rbutton" name="rbutton" class="rbuton"  onfocus="areaFocus('quediv')"
+            onblur="areaBlur('quediv')" > Very likely
+            <input type="radio" value="Somewhat Likely" id="rbutton" name="rbutton"  class="rbuton"  onfocus="areaFocus('quediv')"
+            onblur="areaBlur('quediv')" > Somewhat Likely
+            <input type="radio" value="Unsure" id="rbutton" name="rbutton" class="rbuton"  onfocus="areaFocus('quediv')"
+            onblur="areaBlur('quediv')" >Unsure
+            <input type="radio" value="Not Very Likely" id="rbutton" name="rbutton" class="rbuton"  onfocus="areaFocus('quediv')"
+            onblur="areaBlur('quediv')" >Not Very Likely
+            <input type="radio" value="Not Likely" id="rbutton" name="rbutton"  class="rbuton"  onfocus="areaFocus('quediv')"
+            onblur="areaBlur('quediv')" >Not Likely
+    
+        </div>
+
+        <div class="why" id="why">
+            <P>If not Why?</P>
+            <textarea name="why" id="why" cols="40" rows="10"  onfocus="areaFocus('why')"
+            onblur="areaBlur('why')" ></textarea>
+        </div>
+
+        <div class="que2" id="que2">
+            <p>What could we do to increase your level of satisfaction?</p>
+            <textarea name="why" id="why" cols="40" rows="10"  onfocus="areaFocus('que2')"
+            onblur="areaBlur('que2')" ></textarea>
+        </div>
+
+        <div class="que3" id="que3">
+            <p>Additional Comments</p>
+            <textarea name="why" id="why" cols="40" rows="10"  onfocus="areaFocus('que3')"
+            onblur="areaBlur('que3')" ></textarea>
+        </div><br><br>
+
+
+        <button>Submit</button>
+
+        </div>
+    </div>
+</body>
+</html>

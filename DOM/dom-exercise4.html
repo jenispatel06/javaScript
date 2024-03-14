@@ -1,0 +1,43 @@
+4. Here is a sample HTML file with a submit button. Write a JavaScript function to get the value of the href,
+hreflang, rel, target, and type attributes of the specified link.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p><a id="para" type="text" hreflang="en-us" rel="nofollow" target="_self"
+            href="https://www.w3resource.com/">w3resource</a></p>
+    <button onclick="getAttributes()">Click here</button>
+
+    <p id="input1"></p>
+    <p id="input2"></p>
+    <p id="input3"></p>
+    <p id="input4"></p>
+    <p id="input5"></p>
+
+    <script>
+         function getAttributes() {
+            const ele = document.getElementById('para');
+            const type = ele.type;
+            const hreflang = ele.hreflang;
+            const rel = ele.rel;
+            const target = ele.target;
+            const href = ele.href;
+            document.getElementById('input1').innerText = `Type: ${type}`;
+            document.getElementById('input2').innerText = `hreflang: ${hreflang}`;
+            document.getElementById('input3').innerText = `rel: ${rel}`;
+            document.getElementById('input4').innerText = `target: ${target}`;
+            document.getElementById('input5').innerText = `href: ${href}`;
+         }
+
+    </script>
+</body>
+
+</html>

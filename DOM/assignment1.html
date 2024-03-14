@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15%;
+        }
+
+        input {
+            height: 8vh;
+            width: 20vw;
+        }
+
+        button {
+            height: 5vh;
+            width: 10vw;
+        }
+
+        .btn {
+            margin: 2%;
+            display: flex;
+            gap: 5%;
+        }
+    </style>
+</head>
+
+<body>
+
+        <input type= "text" id= "txt" name= "txt"/>
+     <div class="btn">
+         <button onclick="setValue()">SET</button>
+         <button onclick="getValue()">GET</button>
+     </div>
+   
+     <script>
+        function setValue(){
+           document.getElementById('txt').value = 'Jenis Patel';
+        }
+        function getValue(){
+           var getName = document.getElementById('txt').value = 'Jenis Patel';
+           console.log(getName);
+        }
+     </script>
+</body>
+
+</html>

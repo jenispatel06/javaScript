@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{
+            color: red;
+            opacity: 10%;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const n = 6;
+        for(let i = 1; i <= n; i++){
+            for(let j = 1; j <= n; j++){
+                if(i === 1 || j === 1 || i === n || j === n){
+                    document.write("* ")
+                }else{
+                    document.write(`<span class='red'>* </span>`)
+                }
+            }
+            document.write("<br/>")
+        }
+
+        document.write("<hr>")
+
+        for(let i = 1; i <= n; i++){
+            for(let j = 1; j <= n; j++){
+                if(i === j || i+j === n+1){
+                    document.write("* ")
+                }else{
+                    document.write(`<span class='red'>* </span>`)
+                }
+            }
+            document.write("<br/>")
+        }
+
+        document.write("<hr>")
+
+
+        const n1 = 7;
+        const center = Math.ceil(n1/2);
+        for(let i = 1; i <= n1; i++){
+            for(let j = 1; j <= n1; j++){
+                if( i === 1 || ( j === center && i < n1) || 
+                  (i === n1  && j < center && j !== 1) || 
+                  (j === 1 && i > center && i < n1) ){
+                    document.write("* ")
+                }else{
+                    document.write(`<span class='red'>* </span>`)
+                }
+            }
+            document.write("<br/>")
+        }
+
+        document.write("<hr>")
+
+        const n2 = 4;
+        let x = 1;
+
+        for (let i = 0; i <= n2; i++) {
+            for (let j = 0; j <= i; j++) {
+                
+                document.write(` ${x-i}`);
+                x++;
+                
+            }
+            document.write("<br>");
+        }
+
+    </script>
+</body>
+</html>

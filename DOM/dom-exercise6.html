@@ -1,0 +1,58 @@
+6. Write a JavaScript function that accepts a row, column (to identify a particular cell) and a string to update the
+cell's contents.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            margin-left: 15%;
+            margin-top: 4%;
+            height: 8vh;
+            width: 20vw;
+            text-align: center;
+        }
+        input{
+            margin-left:15%;
+            margin-top: 1%;
+            height: 5vh;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="myTable" border="1">
+        <tr>
+            <td>Row1 cell1</td>
+            <td>Row1 cell2</td>
+        </tr>
+        <tr>
+            <td>Row2 cell1</td>
+            <td>Row2 cell2</td>
+        </tr>
+        <tr>
+            <td>Row3 cell1</td>
+            <td>Row3 cell2</td>
+        </tr>
+    </table>
+    <form>
+        <input type="button" onclick="changeVlaue()" value="Change content">
+    </form>
+
+    <script>
+
+        function changeVlaue() {
+            const rowNum = window.prompt("Input the Row number(0,1,2)", "0");
+            const columnNum = window.prompt("Input the Column number(0,1)", "");
+            const content = window.prompt("Input the Cell content");
+            const rowColumn = document.getElementById('myTable').rows[parseInt(rowNum, 10)].cells;
+            rowColumn[parseInt(columnNum, 10)].innerHTML = content;
+        }
+    </script>
+</body>
+
+</html>

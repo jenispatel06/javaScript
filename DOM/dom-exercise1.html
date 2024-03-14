@@ -1,0 +1,41 @@
+1. Here is a sample html file with a submit button. Now modify the style of the paragraph text through javascript code.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            text-align: center;
+            margin-top: 5%;
+        }
+        div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p id='text'>DOM PRACTICE EXERCISE</p>
+    <div>
+        <button id="jsStyle" onclick="jsStyle()" style="height: 5vh; width: 8vw;">Style</button>
+    </div>
+
+    <script>
+        function jsStyle(jsStyle){
+
+            text.style.fontSize = "50px";
+            text.style.color = "red";
+            text.style.fontFamily = "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif";
+        };
+    </script>
+
+</body>
+
+</html>

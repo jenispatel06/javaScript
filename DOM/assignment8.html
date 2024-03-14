@@ -1,0 +1,119 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       body{
+        padding: 3%;  
+       }
+    </style>
+</head>
+<body>
+
+    <input type="button" onclick='selectAll()' value="Select All" style="display: block;" /> 
+
+    <label for="">1</label>
+    <input type="checkbox"  value="1">
+    <label for="">2</label>
+    <input type="checkbox"  value="2">
+    <label for="">3</label>
+    <input type="checkbox"  value="3">
+    <label for="">4</label>
+    <input type="checkbox"  value="4">
+    <label for="">5</label>
+    <input type="checkbox"  value="5">
+    <label for="">6</label>
+    <input type="checkbox"  value="6">
+    <label for="">7</label>
+    <input type="checkbox"  value="7"> 
+     
+    <script>
+    
+        function selectAll(){  
+                const chkBox = document.getElementsByTagName('input');  
+                for(let i=0; i<chkBox.length; i++){  
+                    if(chkBox[i].type == 'checkbox')  
+                        chkBox[i].checked=true;  
+                }
+            }; 
+
+            
+    </script>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- <button type="button" id="checkbox" onclick="fun_toggle()" data-status="unchecked">Toggle Check boxes</button> -->
+
+    <input type="checkbox" name="checkAll" value="0" onclick="fun_checkAll(this)" />
+
+    <hr />
+
+    <input type="checkbox" class="languages" id="langJava" value="java" onclick="showItem(this)" />
+    <label for="langJava" id="java"></label><br />
+
+    <input type="checkbox" class="languages" id="langPhp" value="Php" onclick="showItem(this)" />
+    <label for="langPhp" id="php"></label><br />
+
+    <input type="checkbox" class="languages" id="langreact" value="React" onclick="showItem(this)" />
+    <label for="langreact" id="react"></label><br />
+
+    <input type="checkbox" class="languages" id="langnode" value="Node" onclick="showItem(this)" />
+    <label for="langnode" id="node"></label><br />
+
+    <input type="checkbox" class="languages" id="langdot" value="dotnet" onclick="showItem(this)" />
+    <label for="langdot" id="dotnet"></label><br />
+
+    <input type="checkbox" class="languages" id="langphy" value="Phython" onclick="showItem(this)" />
+    <label for="langphy" id="Phython"></label><br />
+
+
+    <script>
+        // function showItem(obj) {
+        //     const value = obj.value;
+        //     const label = obj.nextElementSibling;
+        //     if (obj.checked) {
+        //         label.innerText = value;
+        //         return false;
+        //     }
+        //     label.innerText = '';
+        // }
+        
+        function fun_checkAll(obj) {
+            const isChecked = obj.checked;
+            const inputs = document.getElementsByClassName('languages');
+            for (const input of inputs) {
+                if (!isChecked) {
+                    input.removeAttribute('checked');
+                } else {
+                    input.setAttribute('checked', isChecked);
+                }
+            }
+        }
+        // function fun_toggle() {
+        //     const button = document.getElementById('checkbox');
+        //     const checked = button.getAttribute('data-status');
+        //     if (checked === 'unchecked') {
+
+        //     }
+
+        // }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+
+// Adding value of input field in list on add button click
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 5%;
+        }
+        li{
+            display: flex;
+            gap: 5%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text" name="" id="inputField" value="" style="height: 4vh; width: 12vw;">
+        <button onclick="addingList()" style="height: 4vh; width: 8vw;">ADD</button>
+    </div>
+
+    <div style="border: 2px solid black; width: 20vw; height: 20vh; overflow: scroll; margin-top: 2%;">
+        <ul id="ulList">
+             <span id="span">No lines</span>
+        </ul>
+    </div>
+
+    <script>
+        function addingList() {
+            const ulList = document.getElementById('ulList');
+            const inputField = document.getElementById('inputField');
+            const span = document.getElementById('span');
+            const ulChild = ulList.children;
+            const line = document.createElement('li');
+            line.style.fontSize = 'large';
+            line.style.marginTop= '5%';
+            const button = document.createElement('button');
+            button.style.height= '3vh';
+            button.innerText = 'Remove';
+            button.setAttribute('onclick', 'removeLine(this)');
+            if (inputField.value === '') {
+                alert('input is empty.');
+                return false;
+            }
+            else if(ulChild.length === 1 && ulChild[0] === span){
+            span.remove();
+            }
+            line.innerText = inputField.value;
+            line.append(button);
+            ulList.append(line);
+            inputField.value = '';
+        }
+
+        function removeLine(obj) {
+            obj.parentElement.remove();
+            const ulList = document.getElementById('ulList');
+            const ulChild = ulList.children;
+            if(ulChild.length === 0){
+                const span = document.createElement('span');
+                span.setAttribute('id','span');
+                span.innerText = 'No lines.';
+                ulList.append(span);
+            }
+        }
+    </script>
+</body>
+
+</html>

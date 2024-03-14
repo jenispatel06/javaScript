@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            flex-direction: column;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: azure;
+        }
+
+        #center-div {
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid black;
+            font-weight: bold;
+            font-size: 2rem;
+        }
+        select {
+            width: 8vw; 
+        }
+
+        fieldset {
+            width: 20vw;
+            display: flex;
+            gap: 10%;
+            margin: 10px;
+        }
+
+        button {
+            width: 8vw;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="center-div">
+        JENIS
+    </div>
+
+    <fieldset>
+        <legend>BORDER</legend>
+        <select name="borderColor" id="borderColor">
+            <option value="">Select</option>
+            <option value="blue">Blue</option>
+            <option value="red">Red</option>
+            <option value="yellow">Yellow</option>
+            <option value="green">Green</option>
+            <option value="grey">Grey</option>
+        </select>
+
+        <button type="button" onclick="styleColor('borderColor')">Set Border</button>
+    </fieldset>
+
+    <fieldset>
+        <legend>BACKGROUND</legend>
+        <select name="bgColor" id="bgColor">
+            <option value="">Select</option>
+            <option value="blue">Blue</option>
+            <option value="red">Red</option>
+            <option value="yellow">Yellow</option>
+            <option value="green">Green</option>
+            <option value="grey">Grey</option>
+        </select>
+
+        <button type="button" onclick="styleColor('bgColor')">Set Background</button>
+    </fieldset>
+
+    <fieldset>
+        <legend>TEXT COLOR</legend>
+        <select name="txtColor" id="txtColor">
+            <option value="">Select</option>
+            <option value="blue">Blue</option>
+            <option value="red">Red</option>
+            <option value="yellow">Yellow</option>
+            <option value="green">Green</option>
+            <option value="grey">Grey</option>
+        </select>
+
+        <button type="button" onclick="styleColor('txtColor')">Set Text Color</button>
+    </fieldset>
+
+
+    <script>
+
+            function styleColor( property, message = "Please select value" ) {
+                if(typeof property !== 'string') {
+                    throw new Error(`Property parameter is required!`);
+                }
+
+                let propertyValue = '';
+                const propertyObj = document.getElementById(property);
+                propertyValue = propertyObj.value;
+              
+                if ( propertyValue === "" ) {
+                    alert(message);
+                    propertyObj.focus();
+                    return false;
+                }
+                const divObj = document.getElementById('center-div');
+                divObj.style[property] = propertyValue;
+            };
+
+
+        //   function borderColor() {
+        //             const borderColorObj = document.getElementById('borderColor');
+        //             const borderColor = borderColorObj.value;
+        //             if(borderColor === "") {
+        //                 alert('Please select border color');
+        //                 borderColorObj.focus();
+        //                 return false;
+        //             }
+        //             const divObj = document.getElementById('main');
+        //             divObj.style.borderColor = borderColor;
+        //         }
+
+        //         function backgroundColor() {
+        //             const backgroundObj = document.getElementById('bgColor');
+        //             const backgroundColor = backgroundObj.value;
+        //             if(backgroundColor === "") {
+        //                 alert('Please select background color');
+        //                 backgroundColor.focus();
+        //                 return false;
+        //             }
+        //             const divObj = document.getElementById('main');
+        //             divObj.style.backgroundColor = backgroundColor;
+        //         }
+
+        //         function color() {
+        //             const colorObj = document.getElementById('txtColor');
+        //             const color = colorObj.value;
+        //             if(color === "") {
+        //                 alert('Please select text color');
+        //                 colorObj.focus();
+        //                 return false;
+        //             }
+        //             const divObj = document.getElementById('main');
+        //             divObj.style.color = color;
+        //         }
+
+    </script>
+</body>
+</html>

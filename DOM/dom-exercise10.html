@@ -1,0 +1,52 @@
+10. Write a JavaScript program to calculate sphere volume.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 2%;
+        }
+        input{
+            margin-bottom: 1%;
+            height: 5vh;
+            width: 15vw;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <form action="" method="post" id="form">
+
+        <label for="radius">Radius:</label>
+        <input type="text" name="radius" id="radius" required>
+
+        <label for="volume">Volume:</label>
+        <input type="text" name="volume" id="volume">
+        
+        <input type="submit" value="Calculate" id="submit" style="height: 5vh; width: 8vw;">
+        
+    </form>
+
+    <script>
+        function volume() {
+        
+            var radius = document.getElementById('radius').value;
+            const volume = (4 / 3) * Math.PI * Math.pow(radius, 3);
+            document.getElementById('volume').value = volume;
+            return false;
+        }
+        document.getElementById('form').onsubmit = volume;
+    </script>
+</body>
+
+</html>

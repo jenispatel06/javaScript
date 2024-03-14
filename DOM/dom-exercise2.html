@@ -1,0 +1,54 @@
+2. Write a JavaScript function to get the values of First and Last names of the following form Sample HTML file :
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 5%;
+            flex-direction: column;
+        }
+        button{
+            margin-top: 2%;
+            height: 5vh;
+            width: 8vw;
+        }
+        input{
+            height: 4vh;
+            width: 10vw;
+            margin: 1%;
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        First Name:
+        <input type="text" id="fname" name="name" value="Jenis" />
+        Last Name:
+        <input type="text" id="lname" name="name" value="Patel" />
+
+        <button onclick="getValue(this)">Submit</button>
+    </div>
+    <script>
+        function getValue() {
+
+            const firstName = document.getElementById("fname").value;
+            const lastName = document.getElementById("lname").value;
+            const name = (`${firstName} ${lastName}`);
+            document.write(name);
+
+        }
+    </script>
+</body>
+
+</html>

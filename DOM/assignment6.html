@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ 
+    <img
+        src=""
+        data-index="0"
+        id="myImage"
+        style="width: 1000px; height: 500px"
+    />
+ 
+    <br />
+    <button type="button" onclick="changeImage()">Change Image</button>
+ 
+    <script>
+        const images = [
+            "https://static.vecteezy.com/system/resources/thumbnails/025/284/015/small_2x/close-up-growing-beautiful-forest-in-glass-ball-and-flying-butterflies-in-nature-outdoors-spring-season-concept-generative-ai-photo.jpg",
+            "https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg",
+            "https://c4.wallpaperflare.com/wallpaper/297/22/531/lake-blue-moonlight-moon-wallpaper-preview.jpg",
+            "https://expertphotography.b-cdn.net/wp-content/uploads/2018/07/nature-photography.jpg",
+            "https://c4.wallpaperflare.com/wallpaper/410/867/750/vector-forest-sunset-forest-sunset-forest-wallpaper-preview.jpg"
+        ];
+ 
+        function changeImage() {
+            const imagesLen = images.length;
+            const img = document.getElementById('myImage');
+            let imageCurrentPos = +img.getAttribute('data-index');
+ 
+            const currentPos = imageCurrentPos;
+           
+            const src = images[currentPos];
+            img.setAttribute('src', src);
+            img.setAttribute('data-index', imageCurrentPos === imagesLen ? 1 : ++imageCurrentPos);
+ 
+        }
+ 
+        //changeImage();
+    </script>
+</body>
+</html>

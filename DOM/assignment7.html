@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 3%;
+        }
+        label {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="checkbox" id="chkBox1" value="1" onclick="showLable(this)" />
+    <label for="chkBox1"></label>
+    <input type="checkbox" id="chkBox2" value="2" onclick="showLable(this)" />
+    <label for="chkBox2"></label>
+    <input type="checkbox" id="chkBox3" value="3" onclick="showLable(this)" />
+    <label for="chkBox3"></label>
+    <input type="checkbox" id="chkBox4" value="4" onclick="showLable(this)" />
+    <label for="chkBox4"></label>
+    <input type="checkbox" id="chkBox5" value="5" onclick="showLable(this)" />
+    <label for="chkBox5"></label>
+    <input type="checkbox" id="chkBox6" value="6" onclick="showLable(this)" />
+    <label for="chkBox6"></label>
+    <input type="checkbox" id="chkBox7" value="7" onclick="showLable(this)" />
+    <label for="chkBox7"></label>
+
+    <script>
+
+            function showLable(chkValue){
+              const chkBoxObj = chkValue;
+              const chkBoxValue = chkValue.value;
+              const label = chkValue.nextElementSibling;
+              if(chkBoxObj.checked){
+              label.innerText = chkBoxValue;
+              return false;
+            }
+              label.innerText = "";          
+
+        };
+
+    </script>
+
+</body>
+
+</html>

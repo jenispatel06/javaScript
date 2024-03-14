@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{
+            color: red;
+            opacity: 10%;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const n = 9;
+        const center = Math.ceil(n/2)
+        for(let i = 1; i <= n; i++){
+            for(let j =1; j<= n; j++){
+                if(i===center || j===center || 
+                (i==1 && j>=n/2+1) || (i==n && j<=n/2) || 
+                (j==1 && i<=n/2) || (j==n && i>=n/2+1)){
+                    document.write("* ")
+                }else{
+                    document.write(`<span class='red'>* </span>`)
+                }
+            }
+            document.write("<br/>")
+        }
+    </script>
+</body>
+</html>
